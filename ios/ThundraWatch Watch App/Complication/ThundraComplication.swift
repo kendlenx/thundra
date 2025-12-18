@@ -1,0 +1,55 @@
+import WidgetKit
+import SwiftUI
+
+struct ThundraEntry: TimelineEntry {
+  let date: Date
+  let isActive: Bool
+  let nearby: Int
+}
+
+struct ThundraProvider: TimelineProvider {
+  func placeholder(in context: Context) -> ThundraEntry {
+    ThundraEntry(date: .now, isActive: false, nearby: 0)
+  }
+
+  func getSnapshot(in context: Context, completion: @escaping (ThundraEntry) -> Void) {
+    completion(placeholder(in: context))
+  }
+
+  func getTimeline(in context: Context, completion: @escaping (Timeline<ThundraEntry>) -> Void) {
+    let entry = ThundraEntry(
+      date: .now,
+      isActive: UserDefaults.standard.bool(forKey: "isActive"),
+      nearby: UserDefaults.standard.integer(forKey: "nearbyStrikeCount")
+    )
+    completion(Timeline(entries: [entry], policy: .after(Date().addingTimeInterval(60))))
+  }
+}
+
+struct ThundraComplicationEntryView : View {
+  var entry: ThundraProvider.Entry
+
+  var body: some View {
+    Gauge(value: entry.isActive ? 1 : 0, in: 0...1) {
+      Image(systemName: "bolt.fill")
+    } currentValueLabel: {
+      Text(entry.isActive ? "ACTIVE" : "SAFE")
+        .font(.caption2)
+    }
+    .tint(entry.isActive ? Color(red: 0.227, green: 0.745, blue: 1.0) : .gray)
+  }
+}
+
+@main
+struct ThundraComplication: Widget {
+  let kind: String = "ThundraComplication"
+
+  var body: some WidgetConfiguration {
+    StaticConfiguration(kind: kind, provider: ThundraProvider()) { entry in
+      ThundraComplicationEntryView(entry: entry)
+    }
+    .configurationDisplayName("THUNDRA")
+    .description("Shows lightning status.")
+    .supportedFamilies([.accessoryCircular, .accessoryInline, .accessoryRectangular])
+  }
+}

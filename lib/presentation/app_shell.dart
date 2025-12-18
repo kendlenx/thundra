@@ -9,6 +9,7 @@ import 'live/live_map_screen.dart';
 import 'heatmap/heatmap_screen.dart';
 import 'alerts/alerts_screen.dart';
 import 'stats/stats_screen.dart';
+import 'providers/watch_sync_provider.dart';
 
 class AppShell extends ConsumerStatefulWidget {
   const AppShell({super.key});
@@ -24,6 +25,7 @@ class _AppShellState extends ConsumerState<AppShell> {
   Widget build(BuildContext context) {
     ref.watch(appStartupProvider);
     ref.watch(strikeRetentionProvider);
+    ref.watch(watchSyncServiceProvider);
     ref.listen<AlertState>(alertStateProvider, (prev, next) {
       final ev = next.lastEvent;
       if (ev == null) return;
