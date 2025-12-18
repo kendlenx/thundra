@@ -25,6 +25,13 @@ final class WatchDataStore: NSObject, ObservableObject, WCSessionDelegate {
     error: Error?
   ) {}
 
+  // iOS-only requirements (harmless stubs for cross-platform conformance)
+  #if os(iOS)
+  func sessionDidBecomeInactive(_ session: WCSession) {}
+  func sessionDidDeactivate(_ session: WCSession) {}
+  func sessionWatchStateDidChange(_ session: WCSession) {}
+  #endif
+
   func session(
     _ session: WCSession,
     didReceiveApplicationContext applicationContext: [String : Any]
