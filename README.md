@@ -1,39 +1,29 @@
-# THUNDRA (Flutter, iOS‑first)
-Global lightning tracker — premium dark UI with live map, heatmap, alerts, and stats.
+# THUNDRA — Global Lightning Tracker (iOS‑first)
+Premium dark experience to watch the world’s lightning in real time, stay aware with calm alerts, and see where it strikes most.
 
-## Quickstart (iOS Simulator)
-- `flutter pub get`
-- `flutter run -d "iPhone 16"`  
-  Optional Google Maps (requires your API key): `flutter run --dart-define=THUNDRA_USE_GOOGLE_MAPS=true`
-- CocoaPods hiccup? `cd ios && pod install && cd ..`
+## Why you’ll like it
+- **Live, calming visuals:** Midnight navy canvas with electric blue strikes that fade naturally.
+- **Awareness without panic:** Radius + window-based alerts, optional quiet hours, on-device notifications.
+- **Insightful heatmaps:** Grid-based aggregation to show hot zones by day/week/month/all time.
+- **Quick stats:** Daily trend line, monthly bars, most active day/month at a glance.
+- **Privacy-conscious:** Location only when you allow it; data stays local (SQLite) with 30-day purge by default.
 
-## Features
-- **Live Map:** Dark base map, fading strike dots, 1/5/15/60m window, zoom buttons + pinch.
-- **Heatmap:** Grid bin aggregation, Today/7/30/All filters, tap to inspect bin.
-- **Alerts:** Radius (5/10/25 km), window (10/30 m), quiet hours, local notification (best effort), in-app banner.
-- **Stats:** Daily (14d) line + Monthly (12m) bars, most active day/month, totals with window filters.
-- **Persistence:** Drift (SQLite) stores strikes + alert settings; 30-day purge keeps the DB lean.
-- **Mock Feed:** `LightningDataSource` interface with `MockLightningDataSource` for offline dev; placeholder network DS stubbed for later.
-- **Design:** Midnight navy background `#0B0F1A`, electric blue accent `#3ABEFF`, iOS-first tab navigation, premium dark splash/icon.
+## Key Screens
+| Live Map | Heatmap | Alerts | Stats | Overview |
+| --- | --- | --- | --- | --- |
+| ![Live](docs/mockups/iphone16pro/thundra-1.png) | ![Heatmap](docs/mockups/iphone16pro/thundra-2.png) | ![Alerts](docs/mockups/iphone16pro/thundra-3.png) | ![Stats](docs/mockups/iphone16pro/thundra-4.png) | ![Overview](docs/mockups/iphone16pro/thundra-5.png) |
 
-## Architecture
-- `lib/data/` — datasources, Drift DB, repositories, ingestion.
-- `lib/domain/` — models/entities, services, use-cases, repository contracts.
-- `lib/presentation/` — screens, widgets, Riverpod state, theming.
+## Design Language
+- Background: `#0B0F1A` (midnight navy), Accent: `#3ABEFF` (electric blue).
+- Map is the hero; minimal chrome, iOS tab bar navigation.
+- Subtle animations (fade/slide), rounded edges, calm copy throughout.
 
-## Config & Assets
-- Splash config: `flutter_native_splash.yaml` (uses `assets/splash/splash_logo.png`).
-- App icon set: `ios/Runner/Assets.xcassets/AppIcon.appiconset/` (all required sizes).
-- Dark map style for Google Maps: `lib/presentation/live/google_dark_map_style.dart`.
+## Data & Alerts
+- Mock lightning feed for offline-friendly use; provider is swappable for a live source later.
+- Alerts run on-device: radius (5/10/25 km), window (10/30 min), optional quiet hours.
+- No push servers; local notifications only when you enable them.
 
-## Running Tests
-- `flutter test`
-
-## Release Notes / Store Prep
-- iOS permissions: `NSLocationWhenInUseUsageDescription` (calm copy). Local notifications are requested in-app (no extra plist key).
-- Data retention: auto-purge >30 days (see `strikeRetentionProvider`).
-- For App Store/TestFlight: build a release IPA via `flutter build ipa --release` (set signing/team in Xcode if needed).
-- Map provider: defaults to free dark tiles; only enable Google Maps if you supply a key.
-
-## QA
-- Manual checklist: `QA_CHECKLIST.md` (5–10 min tab walk-through + persistence + alerts/quiet-hours checks).
+## Privacy Snapshot
+- Uses your location only for centering and distance-based alerts.
+- No accounts, no analytics SDKs, no ads. Local database; old strikes auto-purged (~30 days).
+- Full policy: `docs/privacy-policy.md`
