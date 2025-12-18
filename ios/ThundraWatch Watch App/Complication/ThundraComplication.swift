@@ -28,15 +28,41 @@ struct ThundraProvider: TimelineProvider {
 
 struct ThundraComplicationEntryView : View {
   var entry: ThundraProvider.Entry
+  @Environment(\.widgetFamily) var family
 
   var body: some View {
-    Gauge(value: entry.isActive ? 1 : 0, in: 0...1) {
-      Image(systemName: "bolt.fill")
-    } currentValueLabel: {
-      Text(entry.isActive ? "ACTIVE" : "SAFE")
+    switch family {
+    case .accessoryInline:
+      Text(entry.isActive ? "ACTIVE \(entry.nearby > 0 ? "\(entry.nearby)⚡" : "")" : "SAFE")
         .font(.caption2)
+    case .accessoryRectangular:
+      HStack {
+        Image(systemName: "bolt.fill")
+          .foregroundStyle(color)
+        VStack(alignment: .leading, spacing: 2) {
+          Text(entry.isActive ? "ACTIVE" : "SAFE")
+            .font(.headline)
+            .foregroundStyle(color)
+          Text(entry.isActive ? "\(entry.nearby) nearby" : "No nearby strikes")
+            .font(.caption2)
+            .foregroundStyle(.secondary)
+        }
+        Spacer()
+      }
+      .padding(.vertical, 2)
+    default:
+      Gauge(value: entry.isActive ? 1 : 0, in: 0...1) {
+        Image(systemName: "bolt.fill")
+      } currentValueLabel: {
+        Text(entry.isActive ? "ACTIVE" : "SAFE")
+          .font(.caption2)
+      }
+      .tint(color)
     }
-    .tint(entry.isActive ? Color(red: 0.227, green: 0.745, blue: 1.0) : .gray)
+  }
+
+  private var color: Color {
+    entry.isActive ? Color(red: 0.227, green: 0.745, blue: 1.0) : .gray
   }
 }
 

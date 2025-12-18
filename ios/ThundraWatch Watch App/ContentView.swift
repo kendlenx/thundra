@@ -9,7 +9,7 @@ struct ContentView: View {
         .font(.system(.caption, design: .rounded).weight(.semibold))
         .foregroundStyle(.white.opacity(0.9))
 
-      pill
+      statusPill
 
       VStack(spacing: 6) {
         Text("Nearby")
@@ -32,7 +32,7 @@ struct ContentView: View {
     .background(Color(red: 0.043, green: 0.059, blue: 0.102))
   }
 
-  private var pill: some View {
+  private var statusPill: some View {
     let active = store.isActive
     return Text(active ? "ACTIVE" : "SAFE")
       .font(.system(.caption2, design: .rounded).weight(.bold))
@@ -40,13 +40,19 @@ struct ContentView: View {
       .padding(.vertical, 6)
       .background(
         Capsule()
-          .fill(active ? Color(red: 0.227, green: 0.745, blue: 1.0).opacity(0.22)
-                      : Color.white.opacity(0.08))
+          .fill(active
+                  ? Color(red: 0.227, green: 0.745, blue: 1.0).opacity(0.22)
+                  : Color.white.opacity(0.08))
       )
       .overlay(
-        Capsule().stroke(active ? Color(red: 0.227, green: 0.745, blue: 1.0) : Color.gray.opacity(0.4), lineWidth: 1)
+        Capsule().stroke(
+          active ? Color(red: 0.227, green: 0.745, blue: 1.0) : Color.gray.opacity(0.4),
+          lineWidth: 1
+        )
       )
-      .foregroundStyle(active ? Color(red: 0.227, green: 0.745, blue: 1.0) : Color.gray.opacity(0.9))
+      .foregroundStyle(
+        active ? Color(red: 0.227, green: 0.745, blue: 1.0) : Color.gray.opacity(0.9)
+      )
   }
 
   private func formattedTime(_ iso: String) -> String {
