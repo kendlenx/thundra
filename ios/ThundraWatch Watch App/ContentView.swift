@@ -1,3 +1,4 @@
+#if os(watchOS)
 import SwiftUI
 
 struct ContentView: View {
@@ -73,3 +74,4 @@ struct ContentView_Previews: PreviewProvider {
       .environmentObject(WatchDataStore())
   }
 }
+#endif

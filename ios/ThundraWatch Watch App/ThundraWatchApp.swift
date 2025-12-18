@@ -5,6 +5,7 @@
 //  Created by Mert on 19.12.2025.
 //
 
+#if os(watchOS)
 import SwiftUI
 
 @main
@@ -18,3 +19,4 @@ struct ThundraWatchApp: App {
     }
   }
 }
+#endif

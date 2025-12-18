@@ -1,3 +1,4 @@
+#if os(watchOS)
 import WidgetKit
 import SwiftUI
 
@@ -66,9 +67,9 @@ struct ThundraComplicationEntryView : View {
   }
 }
 
-@main
-struct ThundraComplication: Widget {
-  let kind: String = "ThundraComplication"
+  @main
+  struct ThundraComplication: Widget {
+    let kind: String = "ThundraComplication"
 
   var body: some WidgetConfiguration {
     StaticConfiguration(kind: kind, provider: ThundraProvider()) { entry in
@@ -79,3 +80,4 @@ struct ThundraComplication: Widget {
     .supportedFamilies([.accessoryCircular, .accessoryInline, .accessoryRectangular])
   }
 }
+#endif

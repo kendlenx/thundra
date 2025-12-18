@@ -1,3 +1,4 @@
+#if os(watchOS)
 import SwiftUI
 import Combine
 import WatchConnectivity
@@ -47,3 +48,4 @@ final class WatchDataStore: NSObject, ObservableObject, WCSessionDelegate {
 
   func sessionReachabilityDidChange(_ session: WCSession) {}
 }
+#endif

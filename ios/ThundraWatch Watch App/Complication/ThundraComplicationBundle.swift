@@ -1,3 +1,4 @@
+#if os(watchOS)
 import WidgetKit
 import SwiftUI
 
@@ -7,3 +8,4 @@ struct ThundraComplicationBundle: WidgetBundle {
     ThundraComplication()
   }
 }
+#endif
