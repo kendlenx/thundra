@@ -3,6 +3,7 @@ import WidgetKit
 import SwiftUI
 
 @available(watchOSApplicationExtension 10.0, *)
+@main
 struct ThundraComplicationBundle: WidgetBundle {
   var body: some Widget {
     ThundraComplicationWidget()
