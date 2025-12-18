@@ -37,7 +37,9 @@ struct ThundraComplicationEntryView: View {
   var body: some View {
     switch family {
     case .accessoryInline:
-      Text(entry.isActive ? "ACTIVE \(entry.nearby > 0 ? \"\(entry.nearby)⚡\" : \"\")" : "SAFE")
+      Text(entry.isActive
+           ? "ACTIVE\(entry.nearby > 0 ? " \(entry.nearby)⚡" : "")"
+           : "SAFE")
         .font(.caption2)
     case .accessoryRectangular:
       HStack {
