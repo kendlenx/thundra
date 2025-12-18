@@ -2,15 +2,17 @@
 import WidgetKit
 import SwiftUI
 
+@available(watchOSApplicationExtension 10.0, *)
 struct ThundraEntry: TimelineEntry {
   let date: Date
   let isActive: Bool
   let nearby: Int
 }
 
+@available(watchOSApplicationExtension 10.0, *)
 struct ThundraProvider: TimelineProvider {
   func placeholder(in context: Context) -> ThundraEntry {
-    ThundraEntry(date: .now, isActive: false, nearby: 0)
+    ThundraEntry(date: Date(), isActive: false, nearby: 0)
   }
 
   func getSnapshot(in context: Context, completion: @escaping (ThundraEntry) -> Void) {
@@ -19,7 +21,7 @@ struct ThundraProvider: TimelineProvider {
 
   func getTimeline(in context: Context, completion: @escaping (Timeline<ThundraEntry>) -> Void) {
     let entry = ThundraEntry(
-      date: .now,
+      date: Date(),
       isActive: UserDefaults.standard.bool(forKey: "isActive"),
       nearby: UserDefaults.standard.integer(forKey: "nearbyStrikeCount")
     )
@@ -27,14 +29,15 @@ struct ThundraProvider: TimelineProvider {
   }
 }
 
-struct ThundraComplicationEntryView : View {
+@available(watchOSApplicationExtension 10.0, *)
+struct ThundraComplicationEntryView: View {
   var entry: ThundraProvider.Entry
   @Environment(\.widgetFamily) var family
 
   var body: some View {
     switch family {
     case .accessoryInline:
-      Text(entry.isActive ? "ACTIVE \(entry.nearby > 0 ? "\(entry.nearby)⚡" : "")" : "SAFE")
+      Text(entry.isActive ? "ACTIVE \(entry.nearby > 0 ? \"\(entry.nearby)⚡\" : \"\")" : "SAFE")
         .font(.caption2)
     case .accessoryRectangular:
       HStack {
@@ -64,20 +67,6 @@ struct ThundraComplicationEntryView : View {
 
   private var color: Color {
     entry.isActive ? Color(red: 0.227, green: 0.745, blue: 1.0) : .gray
-  }
-}
-
-  @main
-  struct ThundraComplication: Widget {
-    let kind: String = "ThundraComplication"
-
-  var body: some WidgetConfiguration {
-    StaticConfiguration(kind: kind, provider: ThundraProvider()) { entry in
-      ThundraComplicationEntryView(entry: entry)
-    }
-    .configurationDisplayName("THUNDRA")
-    .description("Shows lightning status.")
-    .supportedFamilies([.accessoryCircular, .accessoryInline, .accessoryRectangular])
   }
 }
 #endif

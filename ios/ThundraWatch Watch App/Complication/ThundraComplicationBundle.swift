@@ -2,10 +2,25 @@
 import WidgetKit
 import SwiftUI
 
+@available(watchOSApplicationExtension 10.0, *)
 @main
 struct ThundraComplicationBundle: WidgetBundle {
   var body: some Widget {
-    ThundraComplication()
+    ThundraComplicationWidget()
+  }
+}
+
+@available(watchOSApplicationExtension 10.0, *)
+struct ThundraComplicationWidget: Widget {
+  let kind: String = "ThundraComplication"
+
+  var body: some WidgetConfiguration {
+    StaticConfiguration(kind: kind, provider: ThundraProvider()) { entry in
+      ThundraComplicationEntryView(entry: entry)
+    }
+    .configurationDisplayName("THUNDRA")
+    .description("Shows lightning status.")
+    .supportedFamilies([.accessoryCircular, .accessoryInline, .accessoryRectangular])
   }
 }
 #endif
