@@ -1,4 +1,7 @@
 # THUNDRA — Global Lightning Tracker (iOS‑first)
+
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/4fb93db2ecd94eb88f9fc986cb8b33cf)](https://app.codacy.com/gh/kendlenx/thundra?utm_source=github.com&utm_medium=referral&utm_content=kendlenx/thundra&utm_campaign=Badge_Grade)
+
 Premium dark experience to watch the world’s lightning in real time, stay aware with calm alerts, and see where it strikes most.
 
 ## Why you’ll like it
