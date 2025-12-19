@@ -39,17 +39,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		417159B62EF4BA9700995E28 /* Embed Watch Content */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
-			dstSubfolderSpec = 16;
-			files = (
-				417159B52EF4BA9700995E28 /* ThundraWatch Watch App.app in Embed Watch Content */,
-			);
-			name = "Embed Watch Content";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		9705A1C41CF9048500538489 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -268,12 +257,10 @@
 				3B06AD1E1E4923F5004D2608 /* Thin Binary */,
 				4DFCDBA1F7E7A887E0895419 /* [CP] Embed Pods Frameworks */,
 				1EA1E7CF71E1749FD0FE2A02 /* [CP] Copy Pods Resources */,
-				417159B62EF4BA9700995E28 /* Embed Watch Content */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				417159B42EF4BA9700995E28 /* PBXTargetDependency */,
 			);
 			name = Runner;
 			productName = Runner;
