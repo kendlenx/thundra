@@ -1,6 +1,34 @@
 const yearEl = document.getElementById("year");
 if (yearEl) yearEl.textContent = new Date().getFullYear().toString();
 
+function setupAnalytics() {
+  const config = window.THUNDRA_ANALYTICS || {};
+
+  if (config.plausibleDomain) {
+    const plausible = document.createElement("script");
+    plausible.defer = true;
+    plausible.dataset.domain = config.plausibleDomain;
+    plausible.src = "https://plausible.io/js/script.js";
+    document.head.appendChild(plausible);
+  }
+
+  if (config.gaMeasurementId) {
+    const gtagLib = document.createElement("script");
+    gtagLib.async = true;
+    gtagLib.src = `https://www.googletagmanager.com/gtag/js?id=${config.gaMeasurementId}`;
+    document.head.appendChild(gtagLib);
+
+    window.dataLayer = window.dataLayer || [];
+    window.gtag = function gtag() {
+      window.dataLayer.push(arguments);
+    };
+    window.gtag("js", new Date());
+    window.gtag("config", config.gaMeasurementId, { anonymize_ip: true });
+  }
+}
+
+setupAnalytics();
+
 const observer = new IntersectionObserver(
   (entries) => {
     entries.forEach((entry) => {

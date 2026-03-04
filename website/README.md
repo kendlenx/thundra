@@ -23,6 +23,27 @@ Open `http://localhost:8080`.
    - Target: your Vercel project domain.
 5. Wait for SSL issuance and propagation.
 
+## Netlify Notes
+
+- Publish directory: `website`
+- Build command: _(leave empty)_
+- Custom domain: `thunda.kendlenx.com`
+- `netlify.toml` includes SPA redirect and cache headers.
+
+## Analytics
+
+`website/index.html` exposes:
+
+```js
+window.THUNDRA_ANALYTICS = {
+  plausibleDomain: "thunda.kendlenx.com",
+  gaMeasurementId: "",
+};
+```
+
+- Plausible is active by default when `plausibleDomain` is present.
+- To enable GA4, set `gaMeasurementId` to your `G-XXXXXXXXXX` value.
+
 ## Files
 
 - `index.html`: page content

@@ -4,17 +4,51 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>THUNDRA | Global Lightning Tracker</title>
+    <meta name="robots" content="index,follow,max-image-preview:large" />
+    <meta name="theme-color" content="#070b14" />
+    <link rel="canonical" href="https://thunda.kendlenx.com/" />
     <meta
       name="description"
       content="THUNDRA helps you track lightning live with calm local alerts, heatmaps, and trend stats."
     />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="THUNDRA" />
+    <meta property="og:title" content="THUNDRA | Global Lightning Tracker" />
+    <meta
+      property="og:description"
+      content="Track lightning live with calm local alerts, elegant heatmaps, and premium trend analytics."
+    />
+    <meta property="og:url" content="https://thunda.kendlenx.com/" />
+    <meta property="og:image" content="https://thunda.kendlenx.com/assets/og-image.png" />
+    <meta property="og:image:alt" content="THUNDRA app overview screen" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="THUNDRA | Global Lightning Tracker" />
+    <meta
+      name="twitter:description"
+      content="Live lightning tracking with calm alerts, heatmaps, and premium analytics."
+    />
+    <meta name="twitter:image" content="https://thunda.kendlenx.com/assets/og-image.png" />
+    <link rel="icon" href="/assets/og-image.png" />
+    <link rel="apple-touch-icon" href="/assets/favicon-touch.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="preload"
+      as="image"
+      href="/assets/og-image.png"
+      imagesizes="(max-width: 720px) 100vw, 360px"
+    />
     <link
       href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&family=Sora:wght@500;700;800&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="./styles.css" />
+    <script>
+      window.THUNDRA_ANALYTICS = {
+        plausibleDomain: "thunda.kendlenx.com",
+        gaMeasurementId: "",
+      };
+    </script>
   </head>
   <body>
     <div class="bg-glow bg-glow-a"></div>
@@ -67,11 +101,37 @@
 
       <section id="screens" class="screens container">
         <div class="phone-grid">
-          <img src="../docs/mockups/iphone16pro/thundra-1.png" alt="THUNDRA live map" />
-          <img src="../docs/mockups/iphone16pro/thundra-2.png" alt="THUNDRA heatmap" />
-          <img src="../docs/mockups/iphone16pro/thundra-3.png" alt="THUNDRA alerts" />
-          <img src="../docs/mockups/iphone16pro/thundra-4.png" alt="THUNDRA stats" />
-          <img src="../docs/mockups/iphone16pro/thundra-5.png" alt="THUNDRA overview" />
+          <img
+            src="../docs/mockups/iphone16pro/thundra-1.png"
+            alt="THUNDRA live map"
+            loading="eager"
+            fetchpriority="high"
+            decoding="async"
+          />
+          <img
+            src="../docs/mockups/iphone16pro/thundra-2.png"
+            alt="THUNDRA heatmap"
+            loading="lazy"
+            decoding="async"
+          />
+          <img
+            src="../docs/mockups/iphone16pro/thundra-3.png"
+            alt="THUNDRA alerts"
+            loading="lazy"
+            decoding="async"
+          />
+          <img
+            src="../docs/mockups/iphone16pro/thundra-4.png"
+            alt="THUNDRA stats"
+            loading="lazy"
+            decoding="async"
+          />
+          <img
+            src="../docs/mockups/iphone16pro/thundra-5.png"
+            alt="THUNDRA overview"
+            loading="lazy"
+            decoding="async"
+          />
         </div>
       </section>
 

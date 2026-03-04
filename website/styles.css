@@ -169,6 +169,8 @@ a {
   border-radius: 18px;
   padding: 20px 18px;
   box-shadow: var(--shadow);
+  content-visibility: auto;
+  contain-intrinsic-size: 220px;
 }
 
 .feature-card h3 {
@@ -196,6 +198,8 @@ a {
 
 .phone-grid img {
   width: 100%;
+  aspect-ratio: 591 / 1279;
+  object-fit: cover;
   border-radius: 22px;
   border: 1px solid rgba(140, 187, 255, 0.25);
   box-shadow: var(--shadow);
