@@ -241,59 +241,63 @@
         </article>
       </section>
 
-      <section class="trust container" id="why-thundra">
-        <div class="trust-intro">
-          <p class="kicker">WHY THUNDRA</p>
-          <h2>Built for trust when weather gets intense.</h2>
-          <p>
-            THUNDRA keeps awareness high and noise low with a privacy-first product
-            approach.
+      <div class="insight-panels container">
+        <section class="trust" id="why-thundra">
+          <div class="trust-intro">
+            <p class="kicker">WHY THUNDRA</p>
+            <h2>Built for trust when weather gets intense.</h2>
+            <p>
+              THUNDRA keeps awareness high and noise low with a privacy-first product
+              approach.
+            </p>
+          </div>
+          <div class="trust-grid">
+            <article class="trust-card">
+              <span class="trust-icon" aria-hidden="true">🔒</span>
+              <h3>Privacy First</h3>
+              <p>No account required. No ad SDKs. Your experience stays focused.</p>
+            </article>
+            <article class="trust-card">
+              <span class="trust-icon" aria-hidden="true">📱</span>
+              <h3>On-Device Alerts</h3>
+              <p>Lightning notifications are processed locally on your device.</p>
+            </article>
+            <article class="trust-card">
+              <span class="trust-icon" aria-hidden="true">🌙</span>
+              <h3>No Noise</h3>
+              <p>Quiet hours and calm design prevent alert fatigue.</p>
+            </article>
+          </div>
+          <p class="trust-policy">
+            Read our full approach in the
+            <a href="../docs/privacy-policy.md">Privacy Policy</a>.
           </p>
-        </div>
-        <div class="trust-grid">
-          <article class="trust-card">
-            <span class="trust-icon" aria-hidden="true">🔒</span>
-            <h3>Privacy First</h3>
-            <p>No account required. No ad SDKs. Your experience stays focused.</p>
-          </article>
-          <article class="trust-card">
-            <span class="trust-icon" aria-hidden="true">📱</span>
-            <h3>On-Device Alerts</h3>
-            <p>Lightning notifications are processed locally on your device.</p>
-          </article>
-          <article class="trust-card">
-            <span class="trust-icon" aria-hidden="true">🌙</span>
-            <h3>No Noise</h3>
-            <p>Quiet hours and calm design prevent alert fatigue.</p>
-          </article>
-        </div>
-        <p class="trust-policy">
-          Read our full approach in the
-          <a href="../docs/privacy-policy.md">Privacy Policy</a>.
-        </p>
-      </section>
+        </section>
 
-      <section id="how" class="how container" aria-labelledby="how-title">
-        <p class="kicker">HOW IT WORKS</p>
-        <h2 id="how-title">Three steps to smarter lightning awareness.</h2>
-        <div class="how-grid">
-          <article class="how-step">
-            <span class="how-number">01</span>
-            <h3>See Live Activity</h3>
-            <p>Open the map to monitor active strikes with smooth visual fading.</p>
-          </article>
-          <article class="how-step">
-            <span class="how-number">02</span>
-            <h3>Set Alert Boundaries</h3>
-            <p>Choose your radius, time window, and quiet hours to stay in control.</p>
-          </article>
-          <article class="how-step">
-            <span class="how-number">03</span>
-            <h3>Act with Confidence</h3>
-            <p>Use heatmaps and trends to understand where and when activity spikes.</p>
-          </article>
-        </div>
-      </section>
+        <section id="how" class="how" aria-labelledby="how-title">
+          <div class="how-head">
+            <p class="kicker">HOW IT WORKS</p>
+            <h2 id="how-title">Three steps to smarter lightning awareness.</h2>
+          </div>
+          <div class="how-grid">
+            <article class="how-step">
+              <span class="how-number">01</span>
+              <h3>See Live Activity</h3>
+              <p>Open the map to monitor active strikes with smooth visual fading.</p>
+            </article>
+            <article class="how-step">
+              <span class="how-number">02</span>
+              <h3>Set Alert Boundaries</h3>
+              <p>Choose your radius, time window, and quiet hours to stay in control.</p>
+            </article>
+            <article class="how-step">
+              <span class="how-number">03</span>
+              <h3>Act with Confidence</h3>
+              <p>Use heatmaps and trends to understand where and when activity spikes.</p>
+            </article>
+          </div>
+        </section>
+      </div>
 
       <section id="screens" class="screens container">
         <div class="phone-grid">
@@ -354,78 +358,65 @@
             Everything you need to know about THUNDRA's privacy, alerts, and daily use.
           </p>
         </div>
-        <div class="faq-grid">
-          <article class="faq-item">
-            <h3>How does THUNDRA send alerts?</h3>
+        <div class="faq-list">
+          <details class="faq-item" open>
+            <summary>How does THUNDRA send alerts?</summary>
             <p>
               THUNDRA triggers local on-device notifications based on your alert radius
               and time window settings.
             </p>
-          </article>
-          <article class="faq-item">
-            <h3>Does THUNDRA use my location?</h3>
+          </details>
+          <details class="faq-item">
+            <summary>Does THUNDRA use my location?</summary>
             <p>
               THUNDRA only uses your location to center the map and calculate lightning
               distance for alerts.
             </p>
-          </article>
-          <article class="faq-item">
-            <h3>Do I need an account?</h3>
+          </details>
+          <details class="faq-item">
+            <summary>Do I need an account?</summary>
             <p>
               No. THUNDRA does not require account creation to use core tracking and
               alert features.
             </p>
-          </article>
-          <article class="faq-item">
-            <h3>Is THUNDRA ad-free?</h3>
+          </details>
+          <details class="faq-item">
+            <summary>Is THUNDRA ad-free?</summary>
             <p>Yes. THUNDRA is designed as a focused, ad-free experience.</p>
-          </article>
+          </details>
         </div>
       </section>
     </main>
 
     <footer class="footer container">
-      <div class="footer-main">
+      <div class="footer-top">
         <div class="footer-brand">
           <a class="brand" href="#">
             <span class="brand-bolt">⚡</span>
             THUNDRA
           </a>
-          <p>
-            Real-time lightning awareness with calm alerts, privacy-first design,
-            and premium clarity.
-          </p>
+          <p>Focused lightning awareness with privacy-first design and calm alerts.</p>
         </div>
-        <div class="footer-links">
-          <div>
-            <h4>Product</h4>
-            <a href="#features">Features</a>
-            <a href="#how">How It Works</a>
-            <a href="#faq">FAQ</a>
-          </div>
-          <div>
-            <h4>Resources</h4>
-            <a href="../docs/privacy-policy.md">Privacy Policy</a>
-            <a href="#screens">Screenshots</a>
-          </div>
-          <div>
-            <h4>Get App</h4>
-            <a
-              class="js-download-cta"
-              data-placement="footer_column"
-              href="https://apps.apple.com/tr/app/thundra/id6756683794"
-              target="_blank"
-              rel="noreferrer noopener"
-              aria-label="Download THUNDRA on the App Store"
-              >Download on App Store</a
-            >
-          </div>
-        </div>
+        <nav class="footer-nav" aria-label="Footer navigation">
+          <a href="#features">Features</a>
+          <a href="#how">How It Works</a>
+          <a href="#faq">FAQ</a>
+          <a href="../docs/privacy-policy.md">Privacy Policy</a>
+          <a
+            class="footer-download js-download-cta"
+            data-placement="footer_simple"
+            href="https://apps.apple.com/tr/app/thundra/id6756683794"
+            target="_blank"
+            rel="noreferrer noopener"
+            aria-label="Download THUNDRA on the App Store"
+            >Download</a
+          >
+        </nav>
       </div>
-      <div class="footer-bar">
-        <p>© <span id="year"></span> THUNDRA. All rights reserved.</p>
-        <p>Made for people who prefer signal over noise.</p>
-      </div>
+      <p class="footer-copy">
+        © <span id="year"></span> THUNDRA. All rights reserved. Built for people who
+        prefer signal over noise.
+      </p>
     </footer>
     <a
       class="mobile-sticky-cta js-download-cta"
