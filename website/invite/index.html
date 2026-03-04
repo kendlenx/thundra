@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Open THUNDRA Invite</title>
+    <meta
+      name="description"
+      content="Open THUNDRA invite link with app-first deep-link fallback to App Store."
+    />
+    <link rel="canonical" href="https://thunda.kendlenx.com/invite/" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&family=Sora:wght@500;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../content.css" />
+    <script>
+      window.THUNDRA_ANALYTICS = {
+        plausibleDomain: "thunda.kendlenx.com",
+        gaMeasurementId: "",
+        debug: false,
+      };
+    </script>
+  </head>
+  <body
+    data-app-id="6756683794"
+    data-app-slug="thundra"
+    data-appstore-default-country="tr"
+    data-utm-pt="thundra_web"
+    data-utm-mt="8"
+  >
+    <main class="wrapper">
+      <section class="hero">
+        <p class="kicker">INVITE</p>
+        <h1>Opening THUNDRA...</h1>
+        <p id="invite-subtitle" class="lead">
+          We are trying to open the app. If nothing happens, use one of the buttons below.
+        </p>
+        <div class="btn-row">
+          <a id="open-app" class="btn btn-primary" href="#">Open app</a>
+          <a
+            id="download-app"
+            class="btn btn-secondary js-download-cta"
+            data-placement="invite_fallback"
+            href="https://apps.apple.com/tr/app/thundra/id6756683794"
+            target="_blank"
+            rel="noreferrer noopener"
+            >Download from App Store</a
+          >
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">© <span id="year"></span> THUNDRA</footer>
+
+    <script src="../script.js"></script>
+    <script>
+      (function () {
+        const params = new URL(window.location.href).searchParams;
+        const ref = (params.get("ref") || "").trim();
+        const src = (params.get("src") || "share").trim();
+        const safeRef = ref.replace(/[^a-zA-Z0-9_-]/g, "").slice(0, 32);
+        const ct = `invite_${src}_${safeRef || "unknown"}`;
+
+        const appUrl = new URL("thundra://invite");
+        if (safeRef) appUrl.searchParams.set("ref", safeRef);
+        appUrl.searchParams.set("src", src || "share");
+
+        const storeUrl = new URL("https://apps.apple.com/tr/app/thundra/id6756683794");
+        storeUrl.searchParams.set("pt", "thundra_web");
+        storeUrl.searchParams.set("mt", "8");
+        storeUrl.searchParams.set("ct", ct);
+
+        const openApp = document.getElementById("open-app");
+        const downloadApp = document.getElementById("download-app");
+        const subtitle = document.getElementById("invite-subtitle");
+
+        if (openApp) openApp.setAttribute("href", appUrl.toString());
+        if (downloadApp) downloadApp.setAttribute("href", storeUrl.toString());
+
+        const track = (name, props) => {
+          if (typeof window.plausible === "function") {
+            window.plausible(name, { props });
+          }
+          if (typeof window.gtag === "function") {
+            window.gtag("event", name.toLowerCase().replace(/\s+/g, "_"), props);
+          }
+        };
+
+        track("Invite Landing Viewed", { ref: safeRef || "none", src: src || "share" });
+
+        if (openApp) {
+          openApp.addEventListener("click", () => {
+            track("Invite Open App Click", { ref: safeRef || "none", src: src || "share" });
+          });
+        }
+
+        const start = Date.now();
+        window.location.href = appUrl.toString();
+
+        window.setTimeout(() => {
+          const elapsed = Date.now() - start;
+          if (elapsed < 1700 && downloadApp) {
+            if (subtitle) {
+              subtitle.textContent =
+                "If the app is not installed yet, continue from App Store and return here after install.";
+            }
+            track("Invite Fallback Triggered", {
+              ref: safeRef || "none",
+              src: src || "share",
+            });
+          }
+        }, 1300);
+      })();
+    </script>
+  </body>
+</html>

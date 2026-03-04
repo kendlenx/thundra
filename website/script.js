@@ -1,6 +1,50 @@
 const yearEl = document.getElementById("year");
 if (yearEl) yearEl.textContent = new Date().getFullYear().toString();
 
+function trackEvent(name, props = {}) {
+  if (typeof window.plausible === "function") {
+    window.plausible(name, { props });
+  }
+
+  if (typeof window.gtag === "function") {
+    window.gtag("event", name.toLowerCase().replace(/\s+/g, "_"), props);
+  }
+
+  if (window.THUNDRA_ANALYTICS?.debug) {
+    // eslint-disable-next-line no-console
+    console.log("[THUNDRA analytics]", name, props);
+  }
+}
+
+function trackOnceInSession(key, name, props = {}) {
+  try {
+    const sessionKey = `thundra_evt_${key}`;
+    if (sessionStorage.getItem(sessionKey)) return;
+    sessionStorage.setItem(sessionKey, "1");
+  } catch (_) {
+    // no-op
+  }
+  trackEvent(name, props);
+}
+
+function getAttributionProps() {
+  const url = new URL(window.location.href);
+  const referrerHost = (() => {
+    try {
+      return document.referrer ? new URL(document.referrer).host : "direct";
+    } catch (_) {
+      return "direct";
+    }
+  })();
+
+  return {
+    utm_source: url.searchParams.get("utm_source") || "(none)",
+    utm_medium: url.searchParams.get("utm_medium") || "(none)",
+    utm_campaign: url.searchParams.get("utm_campaign") || "(none)",
+    referrer_host: referrerHost,
+  };
+}
+
 function setupAnalytics() {
   const config = window.THUNDRA_ANALYTICS || {};
 
@@ -97,15 +141,94 @@ function setupDownloadTracking(variant) {
         placement,
         destination: "app_store",
         variant,
+        country,
       };
 
-      if (typeof window.plausible === "function") {
-        window.plausible("Download Click", { props: payload });
-      }
+      trackEvent("Download Click", payload);
+      trackEvent("Funnel Converted", payload);
+    });
+  });
+}
 
-      if (typeof window.gtag === "function") {
-        window.gtag("event", "download_click", payload);
-      }
+function setupFunnelTracking(variant) {
+  const baseProps = {
+    variant,
+    ...getAttributionProps(),
+  };
+
+  trackOnceInSession("landing_view", "Landing Viewed", baseProps);
+
+  const sectionSteps = [
+    { selector: "#features", step: "features" },
+    { selector: "#why-thundra", step: "trust" },
+    { selector: "#how", step: "how_it_works" },
+    { selector: "#screens", step: "screens" },
+    { selector: "#cta", step: "cta" },
+    { selector: "#faq", step: "faq" },
+  ];
+
+  const sectionObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        const step = entry.target.getAttribute("data-step-name");
+        if (!step) return;
+        trackOnceInSession(`step_${step}`, "Funnel Step Viewed", {
+          ...baseProps,
+          step,
+        });
+        sectionObserver.unobserve(entry.target);
+      });
+    },
+    { threshold: 0.28 }
+  );
+
+  sectionSteps.forEach(({ selector, step }) => {
+    const el = document.querySelector(selector);
+    if (!el) return;
+    el.setAttribute("data-step-name", step);
+    sectionObserver.observe(el);
+  });
+
+  const ctaObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        const placement = entry.target.getAttribute("data-placement");
+        if (!placement) return;
+        trackOnceInSession(`cta_view_${placement}`, "Download CTA Viewed", {
+          ...baseProps,
+          placement,
+        });
+      });
+    },
+    { threshold: 0.75 }
+  );
+
+  document.querySelectorAll(".js-download-cta").forEach((cta) => {
+    ctaObserver.observe(cta);
+  });
+
+  document.querySelectorAll(".faq-item").forEach((item) => {
+    item.addEventListener("toggle", () => {
+      if (!(item instanceof HTMLDetailsElement) || !item.open) return;
+      const faqId = item.dataset.faqId || "unknown";
+      const question = item.querySelector("summary")?.textContent?.trim() || faqId;
+      trackEvent("FAQ Opened", {
+        ...baseProps,
+        faq_id: faqId,
+        question,
+      });
+    });
+  });
+
+  document.querySelectorAll(".js-trust-link").forEach((link) => {
+    link.addEventListener("click", () => {
+      const linkId = link.getAttribute("data-trust-link") || "unknown";
+      trackEvent("Trust Link Click", {
+        ...baseProps,
+        link_id: linkId,
+      });
     });
   });
 }
@@ -131,7 +254,9 @@ function setupRevealAnimations() {
   );
 
   document
-    .querySelectorAll(".feature-card, .trust-card, .how-step, .faq-item, .cta")
+    .querySelectorAll(
+      ".feature-card, .learn-card, .trust-card, .trust-fact, .how-step, .faq-item, .cta"
+    )
     .forEach((el) => observer.observe(el));
 }
 
@@ -139,4 +264,5 @@ setupAnalytics();
 const variant = getAbVariant();
 applyHeroAbVariant(variant);
 setupDownloadTracking(variant);
+setupFunnelTracking(variant);
 setupRevealAnimations();

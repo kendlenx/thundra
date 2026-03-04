@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>THUNDRA Growth Dashboard Setup</title>
+    <meta
+      name="description"
+      content="THUNDRA funnel event map for Plausible and GA4: landing, section views, CTA views, download clicks, and trust interactions."
+    />
+    <link rel="canonical" href="https://thunda.kendlenx.com/growth-dashboard.html" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&family=Sora:wght@500;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./content.css" />
+    <script>
+      window.THUNDRA_ANALYTICS = {
+        plausibleDomain: "thunda.kendlenx.com",
+        gaMeasurementId: "",
+        debug: false,
+      };
+    </script>
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="topbar-inner">
+        <a class="brand" href="/"><small>⚡</small> THUNDRA</a>
+        <nav class="nav">
+          <a href="/">Home</a>
+          <a href="/blog/">Blog</a>
+          <a href="/privacy-policy.html">Privacy</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="wrapper">
+      <section class="hero">
+        <p class="kicker">ANALYTICS</p>
+        <h1>Growth dashboard event map</h1>
+        <p class="lead">
+          Use these standardized events in Plausible custom events (and optional GA4) to
+          track conversion quality and content influence.
+        </p>
+      </section>
+
+      <section class="content">
+        <div class="grid">
+          <article class="card">
+            <h3>Landing Viewed</h3>
+            <p>Fires once per session with variant and UTM/referrer props.</p>
+          </article>
+          <article class="card">
+            <h3>Funnel Step Viewed</h3>
+            <p>Tracks major sections: features, trust, how-it-works, screens, CTA, FAQ.</p>
+          </article>
+          <article class="card">
+            <h3>Download CTA Viewed</h3>
+            <p>Fires when a specific CTA placement is visible.</p>
+          </article>
+          <article class="card">
+            <h3>Download Click</h3>
+            <p>Tracks App Store click with placement, variant, destination, country.</p>
+          </article>
+          <article class="card">
+            <h3>FAQ Opened</h3>
+            <p>Measures which objections are most frequently explored.</p>
+          </article>
+          <article class="card">
+            <h3>Trust Link Click</h3>
+            <p>Shows privacy/security proof consumption before download.</p>
+          </article>
+        </div>
+
+        <h2>Recommended funnel in Plausible</h2>
+        <div class="list">
+          <div class="item">Landing Viewed</div>
+          <div class="item">Funnel Step Viewed (step = cta)</div>
+          <div class="item">Download CTA Viewed</div>
+          <div class="item">Download Click</div>
+        </div>
+
+        <h2>Useful segment examples</h2>
+        <div class="list">
+          <div class="item">Compare conversion by <strong>variant</strong> for hero A/B test.</div>
+          <div class="item">Compare download click-through by <strong>placement</strong>.</div>
+          <div class="item">Filter by <strong>utm_campaign</strong> to evaluate channel spend quality.</div>
+        </div>
+
+        <div class="btn-row">
+          <a class="btn btn-secondary" href="/">Back to homepage</a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">© <span id="year"></span> THUNDRA</footer>
+    <script src="./script.js"></script>
+  </body>
+</html>

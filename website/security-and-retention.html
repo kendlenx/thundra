@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>THUNDRA Security and Retention</title>
+    <meta
+      name="description"
+      content="THUNDRA security baseline and data retention approach: local-first processing, rolling purge window, and privacy-by-design decisions."
+    />
+    <link rel="canonical" href="https://thunda.kendlenx.com/security-and-retention.html" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&family=Sora:wght@500;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./content.css" />
+    <script>
+      window.THUNDRA_ANALYTICS = {
+        plausibleDomain: "thunda.kendlenx.com",
+        gaMeasurementId: "",
+        debug: false,
+      };
+    </script>
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="topbar-inner">
+        <a class="brand" href="/"><small>⚡</small> THUNDRA</a>
+        <nav class="nav">
+          <a href="/">Home</a>
+          <a href="/privacy-policy.html">Privacy Policy</a>
+          <a href="/blog/">Blog</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="wrapper">
+      <section class="hero">
+        <p class="kicker">TRUST DETAILS</p>
+        <h1>Security and retention by design</h1>
+        <p class="lead">
+          THUNDRA keeps architecture simple: local-first logic, short retention windows,
+          and clear user controls.
+        </p>
+      </section>
+
+      <section class="content">
+        <div class="split">
+          <article class="card">
+            <h3>Local-first alert engine</h3>
+            <p>
+              Nearby lightning checks and alert decisions are performed on-device using
+              your configured radius and schedule.
+            </p>
+          </article>
+          <article class="card">
+            <h3>Rolling retention window</h3>
+            <p>
+              Historical strike data is stored locally and automatically purged beyond a
+              ~30 day window.
+            </p>
+          </article>
+        </div>
+
+        <h2>Security baseline</h2>
+        <div class="list">
+          <div class="item">Network requests use HTTPS/TLS in transit.</div>
+          <div class="item">No in-app advertising SDKs collecting behavioral profile data.</div>
+          <div class="item">No account requirement for core feature access.</div>
+        </div>
+
+        <h2>Data lifecycle</h2>
+        <p>
+          User settings and strike records remain on-device unless iOS backup behavior
+          includes app data. THUNDRA does not operate a user cloud profile backend.
+        </p>
+
+        <div class="btn-row">
+          <a class="btn btn-secondary" href="/privacy-policy.html">Read privacy policy</a>
+          <a class="btn btn-secondary" href="/">Back to homepage</a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">© <span id="year"></span> THUNDRA</footer>
+    <script src="./script.js"></script>
+  </body>
+</html>

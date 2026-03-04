@@ -1,0 +1,262 @@
+:root {
+  --bg: #070b14;
+  --bg-soft: #111b31;
+  --card: rgba(17, 27, 47, 0.86);
+  --stroke: rgba(125, 172, 235, 0.27);
+  --text: #ecf4ff;
+  --muted: #b8c9df;
+  --accent: #2ec8ff;
+  --accent-soft: #7ce9ff;
+  --shadow: 0 18px 44px rgba(6, 11, 22, 0.5);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+  background:
+    radial-gradient(1100px 700px at 12% -8%, rgba(25, 91, 171, 0.48), transparent 58%),
+    radial-gradient(940px 620px at 88% 2%, rgba(17, 140, 199, 0.36), transparent 62%),
+    var(--bg);
+  color: var(--text);
+  font-family: "Manrope", sans-serif;
+}
+
+a {
+  color: inherit;
+}
+
+.wrapper {
+  width: min(980px, calc(100% - 32px));
+  margin: 0 auto;
+}
+
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(129, 176, 240, 0.21);
+  background: rgba(8, 13, 24, 0.84);
+}
+
+.topbar-inner {
+  width: min(1100px, calc(100% - 32px));
+  margin: 0 auto;
+  min-height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.brand {
+  font-family: "Sora", sans-serif;
+  font-weight: 800;
+  text-decoration: none;
+  letter-spacing: 0.5px;
+}
+
+.brand small {
+  color: var(--accent-soft);
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  font-size: 14px;
+  color: var(--muted);
+}
+
+.nav a {
+  text-decoration: none;
+}
+
+.nav a:hover,
+.nav a:focus-visible {
+  color: var(--accent-soft);
+}
+
+.hero {
+  padding: 72px 0 34px;
+}
+
+.kicker {
+  color: var(--accent-soft);
+  letter-spacing: 1.7px;
+  font-size: 12px;
+  font-weight: 800;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+h1 {
+  margin: 10px 0 0;
+  font-family: "Sora", sans-serif;
+  font-size: clamp(30px, 5vw, 50px);
+  line-height: 1.08;
+}
+
+.lead {
+  margin: 14px 0 0;
+  color: var(--muted);
+  max-width: 760px;
+  line-height: 1.6;
+}
+
+.grid {
+  margin-top: 22px;
+  display: grid;
+  gap: 12px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.card {
+  border: 1px solid var(--stroke);
+  border-radius: 16px;
+  padding: 16px;
+  background: linear-gradient(170deg, var(--card), rgba(10, 17, 31, 0.92));
+  box-shadow: var(--shadow);
+}
+
+.card h3 {
+  margin: 0;
+  font-family: "Sora", sans-serif;
+  font-size: 18px;
+}
+
+.card p {
+  margin: 8px 0 0;
+  color: var(--muted);
+  line-height: 1.56;
+  font-size: 14px;
+}
+
+.card ul {
+  margin: 10px 0 0;
+  padding-left: 18px;
+  color: var(--muted);
+}
+
+.card li {
+  margin: 6px 0;
+}
+
+.btn-row {
+  margin-top: 24px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 10px 16px;
+  border-radius: 12px;
+  text-decoration: none;
+  font-weight: 800;
+}
+
+.btn-primary {
+  background: linear-gradient(120deg, var(--accent), var(--accent-soft));
+  color: #00111b;
+}
+
+.btn-secondary {
+  border: 1px solid var(--stroke);
+  background: rgba(20, 33, 58, 0.6);
+}
+
+.content {
+  margin-top: 20px;
+  padding-bottom: 60px;
+}
+
+.content h2 {
+  margin: 28px 0 10px;
+  font-family: "Sora", sans-serif;
+  font-size: clamp(22px, 3.4vw, 34px);
+}
+
+.content p {
+  color: var(--muted);
+  line-height: 1.62;
+}
+
+.content strong {
+  color: var(--text);
+}
+
+.list {
+  display: grid;
+  gap: 10px;
+  margin: 14px 0;
+}
+
+.list .item {
+  border: 1px solid var(--stroke);
+  border-radius: 13px;
+  padding: 14px;
+  background: rgba(12, 21, 38, 0.78);
+}
+
+.split {
+  display: grid;
+  gap: 14px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.post-list {
+  display: grid;
+  gap: 14px;
+  margin-top: 18px;
+}
+
+.post {
+  text-decoration: none;
+}
+
+.post .meta {
+  color: var(--accent-soft);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+}
+
+.post h3 {
+  margin-top: 6px;
+}
+
+.footer {
+  margin: 20px auto 34px;
+  width: min(980px, calc(100% - 32px));
+  border-top: 1px solid rgba(123, 170, 235, 0.2);
+  padding-top: 14px;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+@media (max-width: 900px) {
+  .grid,
+  .split {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 760px) {
+  .nav {
+    display: none;
+  }
+
+  .hero {
+    padding-top: 54px;
+  }
+}

@@ -246,6 +246,73 @@ button:focus-visible {
   line-height: 1.5;
 }
 
+.learn {
+  margin-top: 54px;
+  padding: 30px;
+  border-radius: 22px;
+  border: 1px solid var(--stroke);
+  background: linear-gradient(165deg, rgba(22, 35, 60, 0.74), rgba(9, 16, 29, 0.9));
+  box-shadow: var(--shadow-lg);
+}
+
+.learn-head h2 {
+  margin: 6px 0 8px;
+  font-family: "Sora", sans-serif;
+  font-size: clamp(24px, 3vw, 37px);
+}
+
+.learn-head p {
+  margin: 0;
+  color: var(--muted);
+}
+
+.learn-grid {
+  margin-top: 16px;
+  display: grid;
+  gap: 14px;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.learn-card {
+  display: block;
+  border: 1px solid rgba(124, 172, 238, 0.28);
+  border-radius: 16px;
+  padding: 16px;
+  background: linear-gradient(170deg, var(--bg-card-strong), rgba(11, 17, 30, 0.92));
+  box-shadow: var(--shadow-md);
+}
+
+.learn-card:hover {
+  border-color: rgba(129, 202, 255, 0.44);
+  transform: translateY(-1px);
+}
+
+.learn-type {
+  display: inline-flex;
+  padding: 5px 9px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  color: var(--accent-2);
+  background: rgba(35, 66, 115, 0.38);
+  border: 1px solid rgba(126, 182, 255, 0.3);
+}
+
+.learn-card h3 {
+  margin: 10px 0 0;
+  font-family: "Sora", sans-serif;
+  font-size: 17px;
+}
+
+.learn-card p {
+  margin: 8px 0 0;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.5;
+}
+
 .insight-panels {
   margin-top: 58px;
   display: grid;
@@ -280,6 +347,33 @@ button:focus-visible {
   display: grid;
   gap: 14px;
   grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.trust-facts {
+  margin-top: 14px;
+  display: grid;
+  gap: 12px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.trust-fact {
+  border: 1px solid rgba(123, 170, 236, 0.24);
+  border-radius: 14px;
+  padding: 14px;
+  background: rgba(13, 22, 39, 0.68);
+}
+
+.trust-fact h4 {
+  margin: 0;
+  font-family: "Sora", sans-serif;
+  font-size: 14px;
+}
+
+.trust-fact p {
+  margin: 8px 0 0;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.5;
 }
 
 .trust-card {
@@ -593,12 +687,17 @@ button:focus-visible {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
+  .learn-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   .insight-panels {
     grid-template-columns: 1fr;
   }
 
   .trust-grid,
-  .how-grid {
+  .how-grid,
+  .trust-facts {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
@@ -640,11 +739,14 @@ button:focus-visible {
   }
 
   .features,
+  .learn-grid,
   .trust-grid,
-  .how-grid {
+  .how-grid,
+  .trust-facts {
     grid-template-columns: 1fr;
   }
 
+  .learn,
   .trust,
   .faq {
     padding: 22px 16px;

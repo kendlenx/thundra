@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>On-Device Alerts Without Noise | THUNDRA Journal</title>
+    <meta
+      name="description"
+      content="How on-device processing and quiet-hour controls make lightning alerts more useful and less stressful."
+    />
+    <link rel="canonical" href="https://thunda.kendlenx.com/blog/on-device-alerts-without-noise.html" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="On-Device Alerts Without Noise" />
+    <meta
+      property="og:description"
+      content="A practical breakdown of alert fatigue and why local processing helps." 
+    />
+    <meta property="og:url" content="https://thunda.kendlenx.com/blog/on-device-alerts-without-noise.html" />
+    <meta property="og:image" content="https://thunda.kendlenx.com/assets/og-image.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&family=Sora:wght@500;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../content.css" />
+    <script>
+      window.THUNDRA_ANALYTICS = {
+        plausibleDomain: "thunda.kendlenx.com",
+        gaMeasurementId: "",
+        debug: false,
+      };
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "On-Device Alerts Without Noise",
+        "author": { "@type": "Organization", "name": "THUNDRA" },
+        "publisher": {
+          "@type": "Organization",
+          "name": "THUNDRA",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://thunda.kendlenx.com/assets/og-image.png"
+          }
+        },
+        "datePublished": "2026-03-04",
+        "dateModified": "2026-03-04",
+        "mainEntityOfPage": "https://thunda.kendlenx.com/blog/on-device-alerts-without-noise.html"
+      }
+    </script>
+  </head>
+  <body
+    data-app-id="6756683794"
+    data-app-slug="thundra"
+    data-appstore-default-country="tr"
+    data-utm-pt="thundra_web"
+    data-utm-mt="8"
+  >
+    <header class="topbar">
+      <div class="topbar-inner">
+        <a class="brand" href="/"><small>⚡</small> THUNDRA</a>
+        <nav class="nav">
+          <a href="/">Home</a>
+          <a href="/blog/">Blog</a>
+          <a href="/features/calm-local-alerts.html">Calm Alerts</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="wrapper">
+      <section class="hero">
+        <p class="kicker">JOURNAL</p>
+        <h1>On-device alerts without alert fatigue</h1>
+        <p class="lead">Published March 4, 2026 · 4 minute read</p>
+      </section>
+
+      <article class="content">
+        <p>
+          Many weather apps over-notify. Users start ignoring alerts, then miss the one
+          that actually matters. THUNDRA approaches this differently: alerts are calculated
+          locally and controlled by the user.
+        </p>
+
+        <h2>What causes alert fatigue</h2>
+        <div class="list">
+          <div class="item">Large default alert radius that treats distant activity as urgent.</div>
+          <div class="item">No quiet-hour controls for nighttime or low-risk windows.</div>
+          <div class="item">Notification logic hidden from users, reducing trust.</div>
+        </div>
+
+        <h2>Why on-device processing helps</h2>
+        <p>
+          Local processing keeps decision logic close to the user and reduces data sharing
+          needs. In THUNDRA, distance checks and notification decisions are tied directly
+          to your configured radius and time windows.
+        </p>
+
+        <h2>Recommended baseline setup</h2>
+        <div class="list">
+          <div class="item"><strong>Daily mode:</strong> start with 20-25 km and adjust by local terrain.</div>
+          <div class="item"><strong>Night mode:</strong> use quiet hours to prevent unnecessary wake-ups.</div>
+          <div class="item"><strong>Storm day mode:</strong> widen radius temporarily and monitor live map.</div>
+        </div>
+
+        <div class="btn-row">
+          <a
+            class="btn btn-primary js-download-cta"
+            data-placement="blog_alert_noise"
+            href="https://apps.apple.com/tr/app/thundra/id6756683794"
+            target="_blank"
+            rel="noreferrer noopener"
+            >Try THUNDRA</a
+          >
+          <a class="btn btn-secondary" href="/blog/">More articles</a>
+        </div>
+      </article>
+    </main>
+
+    <footer class="footer">© <span id="year"></span> THUNDRA</footer>
+    <script src="../script.js"></script>
+  </body>
+</html>

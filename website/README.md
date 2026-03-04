@@ -43,9 +43,36 @@ window.THUNDRA_ANALYTICS = {
 
 - Plausible is active by default when `plausibleDomain` is present.
 - To enable GA4, set `gaMeasurementId` to your `G-XXXXXXXXXX` value.
+- Funnel events now include:
+  - `Landing Viewed`
+  - `Funnel Step Viewed`
+  - `Download CTA Viewed`
+  - `Download Click`
+  - `Funnel Converted`
+  - `FAQ Opened`
+  - `Trust Link Click`
+
+## SEO Content
+
+- Feature pages:
+  - `features/live-strike-map.html`
+  - `features/calm-local-alerts.html`
+  - `features/heatmap-and-trends.html`
+- Blog:
+  - `blog/index.html`
+  - `blog/on-device-alerts-without-noise.html`
+  - `blog/lightning-safety-checklist.html`
+- Trust pages:
+  - `privacy-policy.html`
+  - `security-and-retention.html`
+- Growth reference:
+  - `growth-dashboard.html`
+- Deep-link fallback:
+  - `invite/index.html`
 
 ## Files
 
 - `index.html`: page content
 - `styles.css`: visual system and responsive layout
+- `content.css`: style system for feature/blog/policy pages
 - `script.js`: simple reveal animations and dynamic year
