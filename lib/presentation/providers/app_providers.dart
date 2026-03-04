@@ -14,6 +14,7 @@ import '../../domain/repositories/strike_repository.dart';
 import 'user_location_notifier.dart';
 import '../alerts/alerts_controller.dart';
 import '../growth/growth_service.dart';
+import '../review/review_prompt_service.dart';
 
 final appDatabaseProvider = Provider<AppDatabase>((ref) {
   final db = AppDatabase();
@@ -35,6 +36,13 @@ final growthServiceProvider = FutureProvider<GrowthService>((ref) async {
 final growthStartupProvider = FutureProvider<void>((ref) async {
   final growth = await ref.watch(growthServiceProvider.future);
   await growth.start();
+});
+
+final reviewPromptServiceProvider = FutureProvider<ReviewPromptService>((
+  ref,
+) async {
+  final prefs = await ref.watch(sharedPreferencesProvider.future);
+  return ReviewPromptService(prefs);
 });
 
 final strikeRepositoryProvider = Provider<StrikeRepository>((ref) {

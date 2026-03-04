@@ -20,6 +20,23 @@ class AppShell extends ConsumerStatefulWidget {
 
 class _AppShellState extends ConsumerState<AppShell> {
   DateTime? _lastBannerAt;
+  bool _reviewCheckStarted = false;
+
+  @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (_reviewCheckStarted) return;
+      _reviewCheckStarted = true;
+      _maybePromptForReview();
+    });
+  }
+
+  Future<void> _maybePromptForReview() async {
+    await Future<void>.delayed(const Duration(seconds: 2));
+    final reviewService = await ref.read(reviewPromptServiceProvider.future);
+    await reviewService.registerLaunchAndMaybePrompt();
+  }
 
   @override
   Widget build(BuildContext context) {
