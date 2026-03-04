@@ -49,8 +49,120 @@
         gaMeasurementId: "",
       };
     </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "THUNDRA",
+        "operatingSystem": "iOS",
+        "applicationCategory": "WeatherApplication",
+        "url": "https://thunda.kendlenx.com/",
+        "downloadUrl": "https://apps.apple.com/tr/app/thundra/id6756683794",
+        "description": "THUNDRA helps you track lightning live with calm local alerts, heatmaps, and trend stats.",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "THUNDRA",
+          "url": "https://thunda.kendlenx.com/"
+        }
+      }
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "THUNDRA",
+        "url": "https://thunda.kendlenx.com/",
+        "logo": "https://thunda.kendlenx.com/assets/og-image.png"
+      }
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "THUNDRA",
+        "url": "https://thunda.kendlenx.com/"
+      }
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://thunda.kendlenx.com/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Features",
+            "item": "https://thunda.kendlenx.com/#features"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Download",
+            "item": "https://thunda.kendlenx.com/#cta"
+          }
+        ]
+      }
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "How does THUNDRA send alerts?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "THUNDRA triggers local on-device notifications based on your alert radius and time window settings."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Does THUNDRA use my location?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "THUNDRA only uses your location to center the map and calculate lightning distance for alerts."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Do I need an account?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No. THUNDRA does not require account creation to use core tracking and alert features."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Is THUNDRA ad-free?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. THUNDRA is designed as a focused, ad-free experience."
+            }
+          }
+        ]
+      }
+    </script>
   </head>
-  <body>
+  <body
+    data-app-id="6756683794"
+    data-app-slug="thundra"
+    data-appstore-default-country="tr"
+    data-utm-pt="thundra_web"
+    data-utm-mt="8"
+  >
+    <a class="skip-link" href="#main-content">Skip to content</a>
     <div class="bg-glow bg-glow-a"></div>
     <div class="bg-glow bg-glow-b"></div>
 
@@ -61,21 +173,51 @@
       </a>
       <nav class="nav">
         <a href="#features">Features</a>
+        <a href="#how">How It Works</a>
         <a href="#screens">Screens</a>
-        <a href="#cta">Download</a>
+        <a
+          class="js-download-cta"
+          data-placement="nav_download"
+          href="https://apps.apple.com/tr/app/thundra/id6756683794"
+          target="_blank"
+          rel="noreferrer noopener"
+          aria-label="Download THUNDRA on the App Store"
+          >Download</a
+        >
       </nav>
     </header>
 
-    <main>
+    <main id="main-content">
       <section class="hero container">
         <p class="kicker">GLOBAL LIGHTNING AWARENESS</p>
-        <h1>Track storms live with calm, premium clarity.</h1>
+        <h1
+          id="hero-title"
+          data-variant-a="Track storms live with calm, premium clarity."
+          data-variant-b="Know where lightning strikes, before it reaches you."
+        >
+          Track storms live with calm, premium clarity.
+        </h1>
         <p class="subtitle">
           THUNDRA blends real-time lightning maps, elegant heatmaps, and local alerts
           in a focused experience designed for speed and peace of mind.
         </p>
+        <div class="badge-row" aria-label="Core trust badges">
+          <span class="badge-pill">No Ads</span>
+          <span class="badge-pill">No Account</span>
+          <span class="badge-pill">On-Device Alerts</span>
+        </div>
         <div class="hero-actions">
-          <a class="btn btn-primary" href="#cta">Get THUNDRA</a>
+          <a
+            class="btn btn-primary js-download-cta"
+            data-placement="hero_primary"
+            href="https://apps.apple.com/tr/app/thundra/id6756683794"
+            target="_blank"
+            rel="noreferrer noopener"
+            data-variant-a="Get THUNDRA"
+            data-variant-b="Download Free on App Store"
+            aria-label="Download THUNDRA on the App Store"
+            >Get THUNDRA</a
+          >
           <a class="btn btn-ghost" href="#screens">View Screens</a>
         </div>
       </section>
@@ -97,6 +239,60 @@
           <h3>Trend Analytics</h3>
           <p>Explore daily/monthly charts, seasonality, and peak activity hours.</p>
         </article>
+      </section>
+
+      <section class="trust container" id="why-thundra">
+        <div class="trust-intro">
+          <p class="kicker">WHY THUNDRA</p>
+          <h2>Built for trust when weather gets intense.</h2>
+          <p>
+            THUNDRA keeps awareness high and noise low with a privacy-first product
+            approach.
+          </p>
+        </div>
+        <div class="trust-grid">
+          <article class="trust-card">
+            <span class="trust-icon" aria-hidden="true">🔒</span>
+            <h3>Privacy First</h3>
+            <p>No account required. No ad SDKs. Your experience stays focused.</p>
+          </article>
+          <article class="trust-card">
+            <span class="trust-icon" aria-hidden="true">📱</span>
+            <h3>On-Device Alerts</h3>
+            <p>Lightning notifications are processed locally on your device.</p>
+          </article>
+          <article class="trust-card">
+            <span class="trust-icon" aria-hidden="true">🌙</span>
+            <h3>No Noise</h3>
+            <p>Quiet hours and calm design prevent alert fatigue.</p>
+          </article>
+        </div>
+        <p class="trust-policy">
+          Read our full approach in the
+          <a href="../docs/privacy-policy.md">Privacy Policy</a>.
+        </p>
+      </section>
+
+      <section id="how" class="how container" aria-labelledby="how-title">
+        <p class="kicker">HOW IT WORKS</p>
+        <h2 id="how-title">Three steps to smarter lightning awareness.</h2>
+        <div class="how-grid">
+          <article class="how-step">
+            <span class="how-number">01</span>
+            <h3>See Live Activity</h3>
+            <p>Open the map to monitor active strikes with smooth visual fading.</p>
+          </article>
+          <article class="how-step">
+            <span class="how-number">02</span>
+            <h3>Set Alert Boundaries</h3>
+            <p>Choose your radius, time window, and quiet hours to stay in control.</p>
+          </article>
+          <article class="how-step">
+            <span class="how-number">03</span>
+            <h3>Act with Confidence</h3>
+            <p>Use heatmaps and trends to understand where and when activity spikes.</p>
+          </article>
+        </div>
       </section>
 
       <section id="screens" class="screens container">
@@ -138,9 +334,45 @@
       <section id="cta" class="cta container">
         <h2>Ready for a cleaner way to monitor lightning?</h2>
         <p>Launch THUNDRA on iPhone and stay aware without noise.</p>
-        <a class="btn btn-primary" href="https://apps.apple.com" target="_blank" rel="noreferrer">
+        <a
+          class="btn btn-primary js-download-cta"
+          data-placement="footer_cta"
+          href="https://apps.apple.com/tr/app/thundra/id6756683794"
+          target="_blank"
+          rel="noreferrer noopener"
+          aria-label="Download THUNDRA on the App Store"
+        >
           Download on the App Store
         </a>
+      </section>
+
+      <section class="faq container" id="faq">
+        <h2>FAQ</h2>
+        <article class="faq-item">
+          <h3>How does THUNDRA send alerts?</h3>
+          <p>
+            THUNDRA triggers local on-device notifications based on your alert radius
+            and time window settings.
+          </p>
+        </article>
+        <article class="faq-item">
+          <h3>Does THUNDRA use my location?</h3>
+          <p>
+            THUNDRA only uses your location to center the map and calculate lightning
+            distance for alerts.
+          </p>
+        </article>
+        <article class="faq-item">
+          <h3>Do I need an account?</h3>
+          <p>
+            No. THUNDRA does not require account creation to use core tracking and
+            alert features.
+          </p>
+        </article>
+        <article class="faq-item">
+          <h3>Is THUNDRA ad-free?</h3>
+          <p>Yes. THUNDRA is designed as a focused, ad-free experience.</p>
+        </article>
       </section>
     </main>
 
@@ -148,6 +380,15 @@
       <p>© <span id="year"></span> THUNDRA</p>
       <a href="../docs/privacy-policy.md">Privacy Policy</a>
     </footer>
+    <a
+      class="mobile-sticky-cta js-download-cta"
+      data-placement="mobile_sticky"
+      href="https://apps.apple.com/tr/app/thundra/id6756683794"
+      target="_blank"
+      rel="noreferrer noopener"
+      aria-label="Download THUNDRA on the App Store"
+      >Download on App Store</a
+    >
 
     <script src="./script.js"></script>
   </body>
