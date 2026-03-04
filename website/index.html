@@ -162,7 +162,6 @@
     data-utm-pt="thundra_web"
     data-utm-mt="8"
   >
-    <a class="skip-link" href="#main-content">Skip to content</a>
     <div class="bg-glow bg-glow-a"></div>
     <div class="bg-glow bg-glow-b"></div>
 
@@ -175,6 +174,7 @@
         <a href="#features">Features</a>
         <a href="#how">How It Works</a>
         <a href="#screens">Screens</a>
+        <a href="#faq">FAQ</a>
         <a
           class="js-download-cta"
           data-placement="nav_download"
@@ -298,32 +298,32 @@
       <section id="screens" class="screens container">
         <div class="phone-grid">
           <img
-            src="../docs/mockups/iphone16pro/thundra-1.png"
+            src="/assets/screens/thundra-1.png"
             alt="THUNDRA live map"
             loading="eager"
             fetchpriority="high"
             decoding="async"
           />
           <img
-            src="../docs/mockups/iphone16pro/thundra-2.png"
+            src="/assets/screens/thundra-2.png"
             alt="THUNDRA heatmap"
             loading="lazy"
             decoding="async"
           />
           <img
-            src="../docs/mockups/iphone16pro/thundra-3.png"
+            src="/assets/screens/thundra-3.png"
             alt="THUNDRA alerts"
             loading="lazy"
             decoding="async"
           />
           <img
-            src="../docs/mockups/iphone16pro/thundra-4.png"
+            src="/assets/screens/thundra-4.png"
             alt="THUNDRA stats"
             loading="lazy"
             decoding="async"
           />
           <img
-            src="../docs/mockups/iphone16pro/thundra-5.png"
+            src="/assets/screens/thundra-5.png"
             alt="THUNDRA overview"
             loading="lazy"
             decoding="async"
@@ -347,38 +347,85 @@
       </section>
 
       <section class="faq container" id="faq">
-        <h2>FAQ</h2>
-        <article class="faq-item">
-          <h3>How does THUNDRA send alerts?</h3>
+        <div class="faq-head">
+          <p class="kicker">FAQ</p>
+          <h2>Answers before the first storm.</h2>
           <p>
-            THUNDRA triggers local on-device notifications based on your alert radius
-            and time window settings.
+            Everything you need to know about THUNDRA's privacy, alerts, and daily use.
           </p>
-        </article>
-        <article class="faq-item">
-          <h3>Does THUNDRA use my location?</h3>
-          <p>
-            THUNDRA only uses your location to center the map and calculate lightning
-            distance for alerts.
-          </p>
-        </article>
-        <article class="faq-item">
-          <h3>Do I need an account?</h3>
-          <p>
-            No. THUNDRA does not require account creation to use core tracking and
-            alert features.
-          </p>
-        </article>
-        <article class="faq-item">
-          <h3>Is THUNDRA ad-free?</h3>
-          <p>Yes. THUNDRA is designed as a focused, ad-free experience.</p>
-        </article>
+        </div>
+        <div class="faq-grid">
+          <article class="faq-item">
+            <h3>How does THUNDRA send alerts?</h3>
+            <p>
+              THUNDRA triggers local on-device notifications based on your alert radius
+              and time window settings.
+            </p>
+          </article>
+          <article class="faq-item">
+            <h3>Does THUNDRA use my location?</h3>
+            <p>
+              THUNDRA only uses your location to center the map and calculate lightning
+              distance for alerts.
+            </p>
+          </article>
+          <article class="faq-item">
+            <h3>Do I need an account?</h3>
+            <p>
+              No. THUNDRA does not require account creation to use core tracking and
+              alert features.
+            </p>
+          </article>
+          <article class="faq-item">
+            <h3>Is THUNDRA ad-free?</h3>
+            <p>Yes. THUNDRA is designed as a focused, ad-free experience.</p>
+          </article>
+        </div>
       </section>
     </main>
 
     <footer class="footer container">
-      <p>© <span id="year"></span> THUNDRA</p>
-      <a href="../docs/privacy-policy.md">Privacy Policy</a>
+      <div class="footer-main">
+        <div class="footer-brand">
+          <a class="brand" href="#">
+            <span class="brand-bolt">⚡</span>
+            THUNDRA
+          </a>
+          <p>
+            Real-time lightning awareness with calm alerts, privacy-first design,
+            and premium clarity.
+          </p>
+        </div>
+        <div class="footer-links">
+          <div>
+            <h4>Product</h4>
+            <a href="#features">Features</a>
+            <a href="#how">How It Works</a>
+            <a href="#faq">FAQ</a>
+          </div>
+          <div>
+            <h4>Resources</h4>
+            <a href="../docs/privacy-policy.md">Privacy Policy</a>
+            <a href="#screens">Screenshots</a>
+          </div>
+          <div>
+            <h4>Get App</h4>
+            <a
+              class="js-download-cta"
+              data-placement="footer_column"
+              href="https://apps.apple.com/tr/app/thundra/id6756683794"
+              target="_blank"
+              rel="noreferrer noopener"
+              aria-label="Download THUNDRA on the App Store"
+              >Download on App Store</a
+            >
+          </div>
+        </div>
+      </div>
+      <div class="footer-bar">
+        <p>© <span id="year"></span> THUNDRA. All rights reserved.</p>
+        <p>Made for people who prefer signal over noise.</p>
+      </div>
     </footer>
     <a
       class="mobile-sticky-cta js-download-cta"
