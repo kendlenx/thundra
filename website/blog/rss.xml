@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+  <channel>
+    <title>THUNDRA Journal</title>
+    <link>https://thunda.kendlenx.com/blog/</link>
+    <description>Lightning awareness guides by THUNDRA.</description>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 04 Mar 2026 20:00:00 GMT</lastBuildDate>
+
+    <item>
+      <title>On-device alerts without alert fatigue</title>
+      <link>https://thunda.kendlenx.com/blog/on-device-alerts-without-noise.html</link>
+      <guid>https://thunda.kendlenx.com/blog/on-device-alerts-without-noise.html</guid>
+      <pubDate>Wed, 04 Mar 2026 20:00:00 GMT</pubDate>
+      <description>
+        Why local alert processing and quiet-hour controls create a calmer, higher-trust weather experience.
+      </description>
+    </item>
+
+    <item>
+      <title>Lightning safety checklist for daily planning</title>
+      <link>https://thunda.kendlenx.com/blog/lightning-safety-checklist.html</link>
+      <guid>https://thunda.kendlenx.com/blog/lightning-safety-checklist.html</guid>
+      <pubDate>Wed, 04 Mar 2026 20:00:00 GMT</pubDate>
+      <description>
+        A concise checklist for commute, outdoor events, and family planning when activity rises.
+      </description>
+    </item>
+  </channel>
+</rss>

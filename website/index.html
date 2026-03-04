@@ -5,13 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>THUNDRA | Global Lightning Tracker</title>
     <meta name="robots" content="index,follow,max-image-preview:large" />
+    <meta name="author" content="THUNDRA" />
+    <meta
+      name="keywords"
+      content="lightning tracker, weather alerts, live strike map, storm safety, heatmap, iOS weather app"
+    />
     <meta name="theme-color" content="#070b14" />
     <link rel="canonical" href="https://thunda.kendlenx.com/" />
+    <link rel="alternate" hreflang="en" href="https://thunda.kendlenx.com/" />
+    <link rel="alternate" hreflang="x-default" href="https://thunda.kendlenx.com/" />
     <meta
       name="description"
       content="THUNDRA helps you track lightning live with calm local alerts, heatmaps, and trend stats."
     />
     <meta property="og:type" content="website" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:locale:alternate" content="tr_TR" />
     <meta property="og:site_name" content="THUNDRA" />
     <meta property="og:title" content="THUNDRA | Global Lightning Tracker" />
     <meta
@@ -21,6 +30,12 @@
     <meta property="og:url" content="https://thunda.kendlenx.com/" />
     <meta property="og:image" content="https://thunda.kendlenx.com/assets/og-image.png" />
     <meta property="og:image:alt" content="THUNDRA app overview screen" />
+    <link
+      rel="alternate"
+      type="application/rss+xml"
+      title="THUNDRA Journal RSS"
+      href="https://thunda.kendlenx.com/blog/rss.xml"
+    />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="THUNDRA | Global Lightning Tracker" />
     <meta
@@ -54,6 +69,7 @@
       {
         "@context": "https://schema.org",
         "@type": "SoftwareApplication",
+        "@id": "https://thunda.kendlenx.com/#softwareapplication",
         "name": "THUNDRA",
         "operatingSystem": "iOS",
         "applicationCategory": "WeatherApplication",
@@ -66,9 +82,7 @@
           "priceCurrency": "USD"
         },
         "publisher": {
-          "@type": "Organization",
-          "name": "THUNDRA",
-          "url": "https://thunda.kendlenx.com/"
+          "@id": "https://thunda.kendlenx.com/#organization"
         }
       }
     </script>
@@ -76,6 +90,7 @@
       {
         "@context": "https://schema.org",
         "@type": "Organization",
+        "@id": "https://thunda.kendlenx.com/#organization",
         "name": "THUNDRA",
         "url": "https://thunda.kendlenx.com/",
         "logo": "https://thunda.kendlenx.com/assets/og-image.png"
@@ -85,8 +100,29 @@
       {
         "@context": "https://schema.org",
         "@type": "WebSite",
+        "@id": "https://thunda.kendlenx.com/#website",
         "name": "THUNDRA",
-        "url": "https://thunda.kendlenx.com/"
+        "url": "https://thunda.kendlenx.com/",
+        "publisher": {
+          "@id": "https://thunda.kendlenx.com/#organization"
+        }
+      }
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "@id": "https://thunda.kendlenx.com/#webpage",
+        "name": "THUNDRA | Global Lightning Tracker",
+        "url": "https://thunda.kendlenx.com/",
+        "description": "THUNDRA helps you track lightning live with calm local alerts, heatmaps, and trend stats.",
+        "isPartOf": {
+          "@id": "https://thunda.kendlenx.com/#website"
+        },
+        "about": {
+          "@id": "https://thunda.kendlenx.com/#softwareapplication"
+        },
+        "inLanguage": "en"
       }
     </script>
     <script type="application/ld+json">
@@ -151,6 +187,39 @@
               "@type": "Answer",
               "text": "Yes. THUNDRA is designed as a focused, ad-free experience."
             }
+          }
+        ]
+      }
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "ItemList",
+        "name": "THUNDRA feature and guide pages",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "url": "https://thunda.kendlenx.com/features/live-strike-map.html",
+            "name": "Live Strike Map"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "url": "https://thunda.kendlenx.com/features/calm-local-alerts.html",
+            "name": "Calm Local Alerts"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "url": "https://thunda.kendlenx.com/features/heatmap-and-trends.html",
+            "name": "Heatmap and Trends"
+          },
+          {
+            "@type": "ListItem",
+            "position": 4,
+            "url": "https://thunda.kendlenx.com/blog/",
+            "name": "THUNDRA Journal"
           }
         ]
       }
@@ -443,21 +512,31 @@
       </section>
     </main>
 
-    <footer class="footer container">
-      <div class="footer-top">
-        <div class="footer-brand">
-          <a class="brand" href="#">
-            <span class="brand-bolt">⚡</span>
-            THUNDRA
-          </a>
-          <p>Focused lightning awareness with privacy-first design and calm alerts.</p>
-        </div>
-        <nav class="footer-nav" aria-label="Footer navigation">
+    <footer class="footer container" aria-label="Site footer">
+      <div class="footer-brandline">
+        <a class="brand" href="#">
+          <span class="brand-bolt">⚡</span>
+          THUNDRA
+        </a>
+        <p>Focused lightning awareness with privacy-first design and calm alerts.</p>
+      </div>
+      <div class="footer-grid">
+        <section class="footer-panel" aria-labelledby="footer-product">
+          <h3 id="footer-product">Product</h3>
           <a href="#features">Features</a>
           <a href="#how">How It Works</a>
-          <a href="/features/live-strike-map.html">Feature Pages</a>
-          <a href="/blog/">Blog</a>
+          <a href="#screens">Screenshots</a>
           <a href="#faq">FAQ</a>
+        </section>
+        <section class="footer-panel" aria-labelledby="footer-learn">
+          <h3 id="footer-learn">Learn</h3>
+          <a href="/features/live-strike-map.html">Live Strike Map</a>
+          <a href="/features/calm-local-alerts.html">Calm Local Alerts</a>
+          <a href="/features/heatmap-and-trends.html">Heatmap &amp; Trends</a>
+          <a href="/blog/">THUNDRA Journal</a>
+        </section>
+        <section class="footer-panel" aria-labelledby="footer-trust">
+          <h3 id="footer-trust">Trust</h3>
           <a
             class="js-trust-link"
             data-trust-link="privacy_policy_footer"
@@ -468,19 +547,23 @@
             class="js-trust-link"
             data-trust-link="security_footer"
             href="/security-and-retention.html"
-            >Security</a
+            >Security &amp; Retention</a
           >
           <a href="/growth-dashboard.html">Growth Dashboard</a>
+        </section>
+        <section class="footer-panel footer-panel-cta" aria-labelledby="footer-download">
+          <h3 id="footer-download">Get THUNDRA</h3>
+          <p>Download on iPhone and stay weather-aware without alert noise.</p>
           <a
             class="footer-download js-download-cta"
-            data-placement="footer_simple"
+            data-placement="footer_segmented"
             href="https://apps.apple.com/tr/app/thundra/id6756683794"
             target="_blank"
             rel="noreferrer noopener"
             aria-label="Download THUNDRA on the App Store"
-            >Download</a
+            >Download on App Store</a
           >
-        </nav>
+        </section>
       </div>
       <p class="footer-copy">
         © <span id="year"></span> THUNDRA. All rights reserved. Built for people who

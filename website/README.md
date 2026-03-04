@@ -67,8 +67,19 @@ window.THUNDRA_ANALYTICS = {
   - `security-and-retention.html`
 - Growth reference:
   - `growth-dashboard.html`
+- RSS feed:
+  - `blog/rss.xml`
 - Deep-link fallback:
   - `invite/index.html`
+
+## SEO Notes
+
+- Home and content pages now include stronger metadata:
+  - canonical + hreflang
+  - Open Graph + Twitter cards
+  - structured data (WebPage, BreadcrumbList, ItemList/Blog/Article)
+- `sitemap.xml` includes `lastmod` values and content page coverage.
+- Invite fallback page is intentionally `noindex,nofollow` to avoid indexing utility links.
 
 ## Files
 
